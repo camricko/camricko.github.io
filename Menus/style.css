@@ -1,0 +1,65 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.welcome {
+  background-color: rgb(94, 231, 255);
+  width: 300px;
+  height: 100px;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.header {
+  background-color: rgb(255, 0, 00);
+}
+
+.menubuttons {
+  background-color: rgb(130, 18, 38);
+  width: 100px;
+  height: 30px;
+  font: "Century Gothic";
+  font-weight: bold;
+  color: rgb(250, 250, 250);
+}
+
+var hexArray = ['#hexVal','#hexVal','#hexval', '#hexval']
+var randomColor = hexArray[Math.floor(Math.random() * hexArray.length)];
+
+.sidebuttons {
+  border-style: none;
+}
+
+.futility {
+  border-color: rgb(0, 0, 0,);
+  background-color: rgb(200, 13, 38);
+  width: 150px;
+  height: 60px;
+  font: "Century Gothic";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 28px;
+  color: rgb(250, 250, 250);
+}
+
+.futility2 {
+  border-color: rgb(0, 0, 0,);
+  background-color: rgb(200, 13, 38);
+  width: 150px;
+  height: 60px;
+  font: "Century Gothic";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(250, 250, 250);
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
