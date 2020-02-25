@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- main a-frame library -->
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+
+    <!-- physics library -->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+    <!-- particle system library -->
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+    <!-- environment library -->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <!-- text geometry library -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+
+    <!-- extras library -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+
+    <!-- teleport controls -->
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
+
+  </head>
+  <body>
+    <a-scene physics>
+
+      <a-assets>
+        <img id="skyTexture" src="images/starmap.jpg">
+        <img id="io" src="images/io.jpg">
+        <video id="city" autoplay loop="true" src="video/city.mp4"></video>
+        <video id="mountain" autoplay loop="true" src="video/mountain.mp4"></video>
+        <a-asset-item id="tower-obj" src="models/model.obj"></a-asset-item>
+        <a-asset-item id="tower-mtl" src="models/materials.mtl"></a-asset-item>
+        <a-asset-item id="pichu" src="models/pichu/pichu.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-entity id="cameraRig">
+
+          <a-entity id="head" camera="active: true" look-controls wasd-controls position="0 1.6 0"></a-entity>
+          <a-entity oculus-touch-controls="hand: left" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity oculus-touch-controls="hand: right" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity vive-controls="hand: left" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity vive-controls="hand: right" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+
+    </a-entity>
+
+
+
+      <a-sky src = "#skyTexture"></a-sky>
+
+
+      <a-entity
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-entity
+        gltf-model="#pichu"
+        position="0 1 -10"
+        rotation="0 0 0"
+        scale=".01 .01 .01"></a-entity>
+      </a-entity>
+
+
+      <!-- the floor -->
+      <a-entity static-body
+      geometry="primitive: plane;"
+      scale="10 10 10"
+      position="0, -1, 0"
+      align="center"
+      rotation="-90 0 0"></a-entity>
+
+      <!-- venus -->
+      <a-entity static-body geometry="primitive: sphere"
+      material= "src: #io"
+      position="1 1 -4"
+      animation="property: rotation; to: 0 360 0; dur:15000; loop: true; easing: linear"></a-entity>
+
+      <a-entity dynamic-body geometry="primitive: sphere"
+      scale="0.5 0.5 0.5"
+      material= "src: #io"
+      position="0.8 7 -1.8"
+      animation="property: rotation; to: 0 360 0; dur:1000; loop: true; easing: linear"></a-entity>
+
+      <!-- high falling cube -->
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      position="1 20 -4"></a-entity>
+
+      <!-- low cube -->
+      <a-entity dynamic-body
+      geometry="primitive: box" position="0.9 5 -1.8"></a-entity>
+
+      <!-- lil box cube -->
+      <a-entity static-body
+      geometry="primitive: box" position="-0.9 0 -1.7"></a-entity>
+
+      <!-- a shit ton of boxy bois -->
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.9 1.5 -1.7"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.85 1.5 -1.8"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.8 1.5 -1.8"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.75 1.5 -1.8"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.7 1.5 -1.8"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.8 2.4 -1.9"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.65 2 -1.95"></a-entity>
+
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.9 2 -1.6"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.85 2 -1.5"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.8 2 -1.65"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.75 2 -1.85"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.7 1.5 -1.9"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.8 1.5 -1.65"></a-entity>
+
+      <a-entity dynamic-body
+      geometry="primitive: box"
+      scale=".2 .2 .2"
+      position="-0.65 1.5 -1.5"></a-entity>
+
+
+
+
+
+      <!-- <a-plane color="#fcba03" height="20" width="20" rotation="0 90 0"></a-plane> -->
+
+      <!-- <a-entity
+      geometry="primitive: box"
+      position=".75 4 -2"><a-entity> -->
+
+      <!-- <a-entity geometry="primitive: sphere" radius="1;" position="0 1.35 -4" material="src: #io"
+      animation="property: rotation; to: 0 360 0; dur:15000; easing:linear; loop: true">
+      </a-entity> -->
+
+      <!-- <a-entity geometry="primitive: sphere" radius="1" position="0 0.147 4" material="color: #edea3e"> </a-entity> -->
+
+      <!-- <a-entity geometry="primitive: plane; width: 10; height:10" meterial="side: double" rotation="90 0 0" position="0 -1 0"></a-entity> -->
+
+      <!-- <a-entity obj-model="obj:#tower-obj; mtl:#tower-mtl" position="2.7 3.2 -3.5" rotation="0 0 0" scale="1 1 1"
+      animation="property: rotation; to: -20 360 0; dur:300; easing:linear; loop: true"><a-entity> -->
+
+
+
+
+
+
+<!-- <a-video src="#mountain" width="16" height="9" position="0 1.5 -10"></a-video> -->
+    <!-- <a-videosphere src="#city"></a-videosphere> -->
+
+    </a-scene>
+  </body>
+</html>
