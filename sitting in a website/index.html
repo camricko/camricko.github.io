@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- main a-frame library -->
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+
+    <!-- physics library -->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+    <!-- particle system library -->
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+    <!-- environment library -->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <!-- text geometry library -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+
+    <!-- extras library -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+
+    <!-- teleport controls -->
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+
+
+  </head>
+  <body>
+    <!-- <script src="sketch.js"></script>; -->
+
+    <a-scene physics>
+      <a-assets>
+        <img id="home" src="images/new tab.jpg">
+        <img id="youtube" src="images/yt.png">
+        <img id="facebook" src="images/fb (1).png">
+        <img id="bar" src="images/bar.jpg">
+        <img id="messenger" src="images/messenger.png">
+        <a-asset-item id="kotatsu" src="images/kotatsu/scene.gltf"></a-asset-item>
+        <a-asset-item id="bookshelf" src="images/bookshelf/scene.gltf"></a-asset-item>
+        <audio id="pokemon" src="video/Pally.mp3" preload="auto"></audio>
+      </a-assets>
+
+      <a-entity id="cameraRig">
+
+          <a-entity id="head" camera="active: true" look-controls wasd-controls position="0 1.6 0"></a-entity>
+          <a-entity oculus-touch-controls="hand: left" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity oculus-touch-controls="hand: right" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity vive-controls="hand: left" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+          <a-entity vive-controls="hand: right" teleport-controls="button: trigger; cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+
+    </a-entity>
+
+    <a-entity sound="src: #pokemon"></a-entity>
+
+      <a-sky color="#052659"></a-sky>
+
+      <!-- floor -->
+      <a-entity static-body
+      geometry="primitive: plane; width: 16; height: 9;"
+      material="src: #home"
+      position="0, -1, 0"
+      align="center"
+      rotation="-90 0 0">
+      </a-entity>
+
+      <!-- bookshelf -->
+      <a-entity dynamic-body
+      gltf-model="#bookshelf"
+      position="-7.5 -1 0"
+      rotation="0 90 0"
+      scale=".02 .02 .02"></a-entity>
+
+      <!-- porch -->
+      <a-entity static-body
+      geometry="primitive: box; width: 16; height: .5; depth: .5"
+      material="src: #bar"
+      position="0 -0.75 -4.4"></a-entity>
+
+      <!-- jukebox -->
+      <a-entity dynamic-body
+      geometry="primitive: box; depth: 2; width: 2; height: 2"
+      scale=".2 .2 .2"
+      position="-2, 5 0"
+      material="src: #youtube">
+      </a-entity>
+
+
+
+      <!-- kotatsu -->
+      <a-entity
+      gltf-model="#kotatsu"
+      position="4 -1 0"
+      scale=".04 .04 .04"
+      rotation="0 0 0"></a-entity>
+
+
+
+
+
+      <!-- facebook -->
+      <a-entity
+      geometry="primitive: sphere"
+      scale="120 120 120"
+      position="-100 120 -270"
+      material="src: #facebook"
+      animation="property: rotation; to: 300 360 30; dur: 15000; loop: true; easing: linear"></a-entity>
+
+
+
+
+      <a-entity
+      geometry="primitive: box; width: 20; height: 0.1; depth: 0.1"
+      position="-2 2 -5"
+      rotation="0 90 0"
+      animation="property: position; to: -2 200 -403; dur: 15000; easing: linear"></a-entity>
+
+      <!-- messenger -->
+      <a-entity dynamic-body
+      geometry="primitive: box; depth: 2; width: 2; height: 2"
+      scale=".2 .2 .2"
+      position="-7.5 2 0"
+      material="src: #messenger"></a-entity>
+
+
+
+
+
+    </a-scene>
+  </body>
+</html>

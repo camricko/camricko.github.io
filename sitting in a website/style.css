@@ -1,0 +1,50 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.DDElements {
+  position: relative;
+  display: block-inline;
+}
+
+.DDParent {
+  background-color: rgb(121, 155, 181);
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.DDParent:hover {
+  background-color: rgb(103, 131, 153);
+}
+
+
+.DDChild {
+  /* display: none; */
+  position: absolute;
+  background-color: rgb(230, 235, 240);
+  min-width: 160px;
+  overflow: auto;
+  z-index: 1;
+
+}
+
+.DDChild button {
+
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.DDChild:hover {
+  background-color: rgb(196, 200, 204);
+}
+
+.show {display: block;}
