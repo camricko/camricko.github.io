@@ -5,8 +5,8 @@ let initialFade = 25;
 let initialFadeAmount = 3;
 let madeIt = 100;
 let maxS = 100;
-let overshootS = 200;
-let delayTime = 20;
+let overshootS = 410;
+let delayTime = 45;
 
 let greyChangeSpeed = 30;
 let greyChangeDelay = 3;
